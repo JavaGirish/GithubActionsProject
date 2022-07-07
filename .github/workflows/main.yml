@@ -12,11 +12,14 @@ jobs:
       uses: actions/setup-java@v1 # Setup JAVA
       with:
         java-version: 1.8
+         
     
-    - name: Setup Chrome  
-    - uses: browser-actions/setup-chrome@v0.0.0
+    - name: Setup Chrome 
+    - run: chrome --version
+    - uses: browser-actions/setup-chrome@latest
       with:
-        chrome-version: latest
+          chrome-version: beta
+      
         
     - name: Build with Maven
       run: mvn clean test
