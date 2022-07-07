@@ -3,13 +3,7 @@
 <suite name="All Test Suite">
     <test verbose="2" preserve-order="true" name="Sample Test">
     <classes>
-        <class name="com.tests.AmazonTest">
-            <methods>
-                <include name="verifyTitleIsAsExpected"/>
-                <include name="verifyLogoIsDisplayed"/>
-                <include name="SearchTest"/>
-            </methods>
-        </class>
+        <class name="com.tests.AmazonTest" />
     </classes>
     </test>
 </suite>
