@@ -14,7 +14,7 @@ import java.util.List;
 
 public class AmazonTest {
 
-    private static WebDriver driver;
+    private WebDriver driver;
 
     @BeforeMethod
     public void setUp() {
