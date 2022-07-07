@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="All Test Suite" duration-ms="26260" started-at="2022-07-07T21:37:46 IST" finished-at="2022-07-07T21:38:12 IST">
+    <groups>
+    </groups>
+    <test name="Sample Test" duration-ms="26260" started-at="2022-07-07T21:37:46 IST" finished-at="2022-07-07T21:38:12 IST">
+      <class name="com.tests.AmazonTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.AmazonTest@9273a8]" name="setUp" is-config="true" duration-ms="8421" started-at="2022-07-07T21:37:46 IST" finished-at="2022-07-07T21:37:54 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="verifyTitleIsAsExpected()[pri:1, instance:com.tests.AmazonTest@9273a8]" name="verifyTitleIsAsExpected" duration-ms="94" started-at="2022-07-07T21:37:54 IST" finished-at="2022-07-07T21:37:54 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyTitleIsAsExpected -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.AmazonTest@9273a8]" name="tearDown" is-config="true" duration-ms="906" started-at="2022-07-07T21:37:54 IST" finished-at="2022-07-07T21:37:55 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.AmazonTest@9273a8]" name="setUp" is-config="true" duration-ms="5626" started-at="2022-07-07T21:37:55 IST" finished-at="2022-07-07T21:38:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="verifyLogoIsDisplayed()[pri:2, instance:com.tests.AmazonTest@9273a8]" name="verifyLogoIsDisplayed" duration-ms="424" started-at="2022-07-07T21:38:01 IST" finished-at="2022-07-07T21:38:01 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyLogoIsDisplayed -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.AmazonTest@9273a8]" name="tearDown" is-config="true" duration-ms="845" started-at="2022-07-07T21:38:01 IST" finished-at="2022-07-07T21:38:02 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.tests.AmazonTest@9273a8]" name="setUp" is-config="true" duration-ms="5622" started-at="2022-07-07T21:38:02 IST" finished-at="2022-07-07T21:38:08 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setUp -->
+        <test-method status="PASS" signature="SearchTest()[pri:3, instance:com.tests.AmazonTest@9273a8]" name="SearchTest" duration-ms="3306" started-at="2022-07-07T21:38:08 IST" finished-at="2022-07-07T21:38:11 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- SearchTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.tests.AmazonTest@9273a8]" name="tearDown" is-config="true" duration-ms="962" started-at="2022-07-07T21:38:11 IST" finished-at="2022-07-07T21:38:12 IST">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.tests.AmazonTest -->
+    </test> <!-- Sample Test -->
+  </suite> <!-- All Test Suite -->
+</testng-results>
