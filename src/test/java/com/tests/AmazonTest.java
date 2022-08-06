@@ -18,7 +18,8 @@ public class AmazonTest {
 
     @BeforeMethod
     public void setUp() {
-        driver = WebDriverManager.chromedriver().create();
+        WebDriverManager.chromedriver().setup();
+        driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
