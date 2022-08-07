@@ -1,9 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="All Test Suite">
-    <test verbose="2" preserve-order="true" name="Sample Test">
+<suite name="Cross Browser Test Suite" parallel="tests" thread-count="3">
+
+    <parameter name="browser" value="chrome"/>
+    <parameter name="version" value="104.0"/>
+    <test verbose="2" preserve-order="true" name="Chrome Test">
     <classes>
         <class name="com.tests.AmazonTest" />
     </classes>
+    </test>
+
+    <parameter name="browser" value="firefox"/>
+    <parameter name="version" value="103.0"/>
+    <test verbose="2" preserve-order="true" name="firefox Test">
+        <classes>
+            <class name="com.tests.AmazonTest" />
+        </classes>
+    </test>
+
+    <parameter name="browser" value="opera"/>
+    <parameter name="version" value="88.0"/>
+    <test verbose="2" preserve-order="true" name="Opera Test">
+        <classes>
+            <class name="com.tests.AmazonTest" />
+        </classes>
     </test>
 </suite>
