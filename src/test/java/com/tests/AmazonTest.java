@@ -2,6 +2,7 @@ package com.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.remote.Browser;
 import org.openqa.selenium.remote.CapabilityType;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
@@ -22,7 +23,7 @@ public class AmazonTest {
 
     @BeforeMethod
     @Parameters({"browser", "version"})
-    public void setUp(String browserName, String version, Method method) {
+    public void setUp(String browser, String version, Method method) throws MalformedURLException {
         /*
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
@@ -31,18 +32,29 @@ public class AmazonTest {
         options.addArguments("--window-size=1920x1080"); //!!!should be enabled for Jenkins
         WebDriverManager.chromedriver().setup();
         */
-        String testMethodName = method.getName();
         DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setCapability(CapabilityType.BROWSER_NAME, browserName);
-        capabilities.setCapability(CapabilityType.BROWSER_VERSION, version);
+
+
+        switch (browser.toUpperCase()){
+            case "CHROME":
+                capabilities.setCapability(CapabilityType.BROWSER_NAME, "chrome");
+                capabilities.setCapability(CapabilityType.BROWSER_VERSION, version);
+
+                break;
+
+            case "FIREFOX":
+                capabilities.setCapability(CapabilityType.BROWSER_NAME, "firefox");
+                capabilities.setCapability(CapabilityType.BROWSER_VERSION, version);
+                break;
+
+            case "OPERA":
+                capabilities.setCapability(CapabilityType.BROWSER_NAME, "opera");
+                capabilities.setCapability(CapabilityType.BROWSER_VERSION, version);
+                break;
+        }
         capabilities.setCapability("enableVNC", true);
         capabilities.setCapability("enableVideo", true);
-        capabilities.setCapability("name", testMethodName);
-        try {
-            driver = new RemoteWebDriver(new URL("http://34.131.87.254:4444/wd/hub"), capabilities);
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        }
+        driver = new RemoteWebDriver(new URL("http://34.131.87.254:4444/wd/hub"), capabilities);
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
