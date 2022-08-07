@@ -5,11 +5,16 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.openqa.selenium.chrome.ChromeDriver;
+
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.time.Duration;
 import java.util.List;
 
@@ -19,13 +24,24 @@ public class AmazonTest {
 
     @BeforeMethod
     public void setUp() {
+        /*
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--headless"); //!!!should be enabled for Jenkins
         options.addArguments("--disable-dev-shm-usage"); //!!!should be enabled for Jenkins
         options.addArguments("--window-size=1920x1080"); //!!!should be enabled for Jenkins
         WebDriverManager.chromedriver().setup();
-        driver = new ChromeDriver(options);
+        */
+        DesiredCapabilities capabilities = new DesiredCapabilities();
+        capabilities.setBrowserName("chrome");
+        capabilities.setVersion("80.0");
+        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVideo", true);
+        try {
+            driver = new RemoteWebDriver(new URL("http://34.131.172.95:4444/wd/hub"), capabilities);
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        }
         driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
