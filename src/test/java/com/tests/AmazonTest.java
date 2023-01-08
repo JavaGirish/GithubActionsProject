@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.Assert;
@@ -22,10 +23,16 @@ public class AmazonTest {
     @BeforeMethod
     @Parameters({"browser"})
     public void setUp(String browser, Method method){
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("start-maximized");
+        options.addArguments("disable-infobars");
+        options.addArguments("--disable-extensions");
+        options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--no-sandbox");
         switch (browser.toUpperCase()){
             case "CHROME":
                 WebDriverManager.chromedriver().setup();
-                driver = new ChromeDriver();
+                driver = new ChromeDriver(options);
                 break;
 
             case "FIREFOX":
@@ -39,8 +46,6 @@ public class AmazonTest {
                 break;
         }
 
-
-        driver.manage().window().maximize();
         driver.manage().deleteAllCookies();
         driver.manage().timeouts().pageLoadTimeout(Duration.ofMinutes(1));
         driver.get("https://www.amazon.in/");
